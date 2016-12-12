@@ -1,0 +1,34 @@
+@keyframes start-container-animate-open {
+  0%   { transform: scale(0); }
+  100% { transform: scale(1); }
+}
+
+@keyframes start-container-animate-close {
+  0%   { transform: scale(1); }
+  100% { transform: scale(0); }
+}
+
+.start-container {
+	background-image: linear-gradient(to right, rgba(0, 0, 0, 0.7),  rgba(0, 0, 0, 0.7)); 
+	height: 100%; 
+	width: 100%; 
+	padding: 40px;
+    box-sizing: border-box;
+	position: absolute; 
+	z-index: 999;
+}
+
+.start-container-open {
+  animation-name: start-container-animate-open;
+	animation-duration: 0.3s;
+}
+
+.start-container-close {
+  animation-name: start-container-animate-close;
+	animation-duration: 0.3s;
+}
+
+.start-content {
+	height: 100%;
+	margin: 0 auto;
+}

@@ -1,0 +1,29 @@
+<div id="system-window-{{ id }}" class="system-window-{{ template }} system-window-{{ template }}-unactive" style="top: {{ positionY }}px; left: {{ positionX }}px; width: {{ width }}px; height: {{ height }}px;">
+  <header class="system-window-{{ template }}-header">
+    <div class="system-window-{{ template }}-title" id="system-window-{{ id }}-title">{{ title }}</div>
+    <div class="system-window-{{ template }}-button">
+      {% if show.buttonMinimize %}
+        <div class="system-window-{{ template }}-button-minimize" id="system-window-{{ id }}-minimize"></div>
+      {% endif %}
+      {% if show.buttonMaximize %}
+        <div class="system-window-{{ template }}-button-maximize" id="system-window-{{ id }}-maximize"></div>
+      {% endif %}
+      {% if show.buttonClose %}
+        <div class="system-window-{{ template }}-button-close" id="system-window-{{ id }}-close"></div>
+      {% endif %}
+    </div>
+  </header>
+  <main class="system-window-{{ template }}-container" id="system-window-{{ id }}-container">
+    <div class="system-window-{{ template }}-content" id="system-window-{{ id }}-content">
+      {{ content }}
+    </div>
+  </main>
+  <div id="system-window-{{ id }}-left" class="system-window-{{ template }}-left"></div>
+  <div id="system-window-{{ id }}-right" class="system-window-{{ template }}-right"></div>
+  <div id="system-window-{{ id }}-top" class="system-window-{{ template }}-top"></div>
+  <div id="system-window-{{ id }}-bottom" class="system-window-{{ template }}-bottom"></div>
+  <div id="system-window-{{ id }}-bottom-right" class="system-window-{{ template }}-bottom-right"></div>
+  <div id="system-window-{{ id }}-bottom-left" class="system-window-{{ template }}-bottom-left"></div>
+  <div id="system-window-{{ id }}-top-right" class="system-window-{{ template }}-top-right"></div>
+  <div id="system-window-{{ id }}-top-left" class="system-window-{{ template }}-top-left"></div>
+</div>

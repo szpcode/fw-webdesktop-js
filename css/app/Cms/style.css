@@ -1,0 +1,160 @@
+.skeleton-column2-left {
+    width: 250px;
+	float: left;
+    background: #1B1F22;
+    height: 100%;
+}
+
+.skeleton-column2-right {
+    width: calc(100% - 250px);
+	float: left;
+    background: #F9F9F9;
+    height: 100%;
+}
+
+.skeleton-column2-right-top {
+    box-shadow: 0 1px 8px 0 rgba(51, 51, 51, 0.6);
+    content: '';
+    display: 'block';
+    height: 0px;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    position: absolute;
+    height: 1px;
+}
+
+.skeleton-column2-content {
+    margin: 20px 20px 20px 20px;
+}
+
+.skeleton-menu-left {
+    color: #575B5E;
+    line-height: 20px;
+}
+
+.skeleton-menu-left-link-active {
+    border-left: 2px solid yellow;
+}
+
+.skeleton-menu-left-header {
+    font-weight: bold;
+    font-size: 12px;
+    padding: 20px 20px 10px 20px;
+}
+
+.skeleton-menu-left-content li {
+    font-size: 16px;
+    color: #7F8386;
+    height: 45px;
+    line-height: 45px;
+    padding-left: 20px;
+    display: block;
+    cursor: pointer;
+}
+
+.skeleton-menu-left-content i {
+    width: 40px;
+    font-size: 18px;
+}
+
+.skeleton-menu-left-content li:hover {
+    color: #B1B5B8;
+    text-decoration: none;
+}
+
+
+.skeleton-content-header-sep:before {
+    font-family: FontAwesome;
+    content: "\f105";
+    margin: 0 5px;
+}
+
+.skeleton-content-header {
+    color: #666; 
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 21px;
+}
+
+.skeleton-window {
+    padding: 20px;
+    background: #fff;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.skeleton-window-header {
+    height: 30px;
+    line-height: 30px;
+    margin-bottom: 20px;
+    color: #666;
+    font-size: 16px;
+}
+
+.skeleton-window-header h2 {
+    display: inline;
+}
+
+.skeleton-not-found {
+    padding: 100px 30px;
+    text-align: center;
+}
+
+.skeleton-window-content {
+    font-size: 14px;
+}
+
+.skeleton-not-found {
+    text-align: center;
+}
+
+.skeleton-form-content label {
+    margin-bottom: 8px;
+}
+
+
+/* table */
+.skeleton-table {
+    width: 100%;
+}
+
+.skeleton-table td, .skeleton-table th {
+    padding: 6px 3px;
+}
+
+.skeleton-table tr {
+    border-bottom: 1px solid #ddd;
+}
+
+.skeleton-menu-options li {
+    display: inline;
+}
+
+.skeleton-table thead {
+    font-weight: bold;
+}
+
+.skeleton-table-options {
+    display: inline;
+}
+
+.skeleton-table-options li {
+    display: inline;
+}
+
+.skeleton-table-options span {
+    border-radius: 4px;
+    background: #DDDDDD;
+    padding: 3px 8px;
+    margin: 0px 0px 0px 4px;
+    color: #333;
+    cursor: pointer;
+}
+
+.skeleton-table-options span:hover {
+    background: #C1C1C1;
+    color: #333;
+    text-decoration: none;
+}

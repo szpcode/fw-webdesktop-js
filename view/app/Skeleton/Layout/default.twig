@@ -1,0 +1,15 @@
+{% if layoutType == 'full screen' %}
+    <div id="{{ id['container'] }}" style="width: 100%; height: 100%;">
+        <div class="skeleton-full-screen-content" id="{{ id['content'] }}"></div>
+    </div>
+{% else %}
+    <div id="{{ id['container'] }}" style="width: 100%; height: 100%; padding-top: 1px; box-sizing: border-box;">
+        <div class="skeleton-column2-left">
+            {% block column_left %}{% endblock %}
+        </div>
+        <div class="skeleton-column2-right">
+            <div class="skeleton-column2-right-top"></div>
+            <div class="skeleton-column2-content" id="{{ id['content'] }}"></div>
+        </div>
+    </div>
+{% endif %}

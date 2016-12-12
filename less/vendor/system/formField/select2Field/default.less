@@ -1,0 +1,127 @@
+@import '../../style.less';
+
+.classSelect2Field_default {
+    position: relative;
+}
+
+.classSelect2Field_default_window {
+    position: absolute; 
+    width: 100%;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    background: #fff;
+    padding: 10px;
+    border: 1px solid #eee;
+    box-sizing: border-box;
+	z-index: 3;
+}
+
+.classSelect2Field_default_buttonArrow {
+    position: absolute; 
+    top: 7px;
+    right: 7px;
+    width: 24px;
+    height: 24px;
+    line-height: 15px;
+    border-radius: 100px;
+    cursor: pointer;
+    text-align: center;
+    background: #fff;
+    border: 2px solid #b8b8be;
+    color: #b8b8be;
+    box-sizing: border-box;
+}
+
+.classSelect2Field_default_buttonArrow:hover {
+    color: #666;
+    border-color: #666; 
+}
+
+.classSelect2Field_default_buttonArrow:before {
+    font-family: 'FontAwesome';
+    content: "\f078";
+    font-size: 10px;
+}
+
+.classSelect2Field_default_buttonSend {
+    float: right; 
+    padding: 0px 10px; 
+    height: 20px; 
+    background: @color-primary; 
+    color: #fff;
+    cursor: pointer;
+}
+
+.classSelect2Field_default_buttonOptions {
+    max-height: 140px;
+    overflow: auto;
+}
+
+.classSelect2Field_default_buttonOptions_item {
+    cursor: pointer;
+    height: 28px;
+    line-height: 28px;
+    overflow: hidden;
+    padding: 0 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.classSelect2Field_default_buttonOptions_item:hover {
+    background: #efefef;
+}
+
+.classSelect2Field_default_itemActive {
+   &:extend(.styleTemplate1);
+}
+
+.classSelect2Field_default_itemActive:hover {
+   &:extend(.styleTemplate1Hover);
+}
+
+.classSelect2Field_default_buttonClear {
+    &:extend(.styleTemplate2);
+    background: #999; 
+    float: right; 
+    padding: 6px 10px; 
+    color: #fff; 
+    cursor: pointer;
+}
+
+.classSelect2Field_default_buttonClear:hover {
+    &:extend(.styleTemplate2Hover);
+}
+
+.classSelect2Field_default_buttons_content {
+    overflow: hidden;
+    padding-bottom: 5px;
+}
+
+.classSelect2Field_default_search {
+    padding-bottom: 5px;
+}
+
+.classSelect2Field_default_contentAdd {
+    margin-top: 5px;
+    position: relative;
+}
+
+.classSelect2Field_default_buttonAdd {
+    &:extend(.styleTemplate2);
+    border-radius: 3px;
+    position: absolute;
+    right: 6px;
+    top: 6px;
+    width: 26px;
+    height: 26px;
+    line-height: 26px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 22px;
+    text-align: center;
+}
+
+.classSelect2Field_default_buttonAdd:hover {
+    &:extend(.styleTemplate2Hover);
+    border-radius: 3px;
+}

@@ -1,0 +1,48 @@
+
+
+{% import "../../../../../vendor/system/formBuilder/default.html" as form %}
+
+{% set header = 'Wpisy' %}
+{% set subheader = 'Dodawanie' %}
+
+{% set menu_left_link_active = 'Wpisy' %}
+
+<div style="height: 100%; overflow: auto;">
+
+    <div style="padding: 10px;">
+    {{ form.datetime('datetimie', id['datetime'], '2010-03-01 20:20:20') }}
+    </div>
+    <div style="padding: 10px;">
+    {{ form.input('text', id['text'], '2010-03-01 20:20:20') }}
+    </div>
+    <div style="padding: 10px;">
+    {{ form.number('float', id['field1'], 0, -10, 10000, 2) }}
+    </div>
+    <div style="padding: 10px;">
+        {{ form.select2(id['field2'], {'x': 'xxx', 'y': 'yyyy', 'a': 'aaaa', 'b': 'bbbb', 'c': 'ccccc', 'd': 'ddddd', 'e': 'eeeee', 'f': 'fffff', 'g': 'ggggg', 'hhh': 'hhhhh', 'iii': 'iiii', 'jjjjj': 'jjjjj', 'kk': 'kkkkkk', 'llll': 'llll', 'test': 'test', 'testowy': 'testowy', 'testowniak': 'testowniak', 'ł': 'łłłł', 'ww': 'wwww', 'źźźźź': 'źźźźź'}, ['x', 'y', 'źźźźź'], ' - dowolny -', true, false, {show: ['search']}) }}
+    </div>
+    <div style="padding: 10px;">
+        {{ form.textarea(id['field3'], 'zdxfvxzfas') }}
+    </div>
+
+
+    <div style="padding: 10px;">
+        {{ form.choice('checkbox', id['field6'], {'x': 'xxxx', 'a': 'aaaa', 'b': 'bbbb'}, ['x', 'b']) }}
+    </div>
+    
+    <div style="padding: 10px;">
+        {{ form.choice('radio', id['field7'], {'x': 'xxxx', 'a': 'aaaa', 'b': 'bbbb'}, ['x', 'b']) }}
+    </div>
+    <div style="padding: 10px;">
+        {{ form.ckeditor(id['field7'], 'cmsPost', 'mini') }}
+    </div>
+    <div style="padding: 10px;">
+        {{ form.ckeditor(id['field8'], 'cmsPost', 'full') }}
+    </div>
+    
+    <div style="padding: 10px;">
+        {{ form.ext_select2(id['field9'], 'sdfdas') }}
+    </div>
+    
+    <div style="height: 100px;"></div>
+</div>

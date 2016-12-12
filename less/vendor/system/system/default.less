@@ -1,0 +1,168 @@
+@font-face {
+  font-family: 'fontello';
+  src: url('../../../../font/vendor/fontello/fontello.eot?56438478');
+  src: url('../../../../font/vendor/fontello/fontello.eot?56438478#iefix') format('embedded-opentype'),
+       url('../../../../font/vendor/fontello/fontello.woff?56438478') format('woff'),
+       url('../../../../font/vendor/fontello/fontello.ttf?56438478') format('truetype'),
+       url('../../../../font/vendor/fontello/fontello.svg?56438478#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@import '../style.less';
+
+body {
+	font-family: 'Roboto', sans-serif;
+	color: #444;
+}
+
+.system-workshop {
+  position: absolute; 
+  top: 50px; 
+  left: 0px; 
+  right: 0px; 
+  bottom: 0px; 
+  overflow: hidden;
+}
+
+.system-button-close {
+	width: 30px; 
+	height: 30px; 
+	background: rgb(255, 255, 255) none repeat scroll 0% 0%; 
+	position: absolute; 
+	z-index: 1100; 
+	border-radius: 25px; 
+	line-height: 30px; 
+	font-size: 14px; 
+	text-align: center; 
+	cursor: pointer; 
+	right: 30px; 
+    top: 30px; 
+}
+
+.system-button-close:before {
+	content: '';
+	font-family: fontello;
+}
+
+.system-desktop {
+  position: absolute; 
+  top: 50px; 
+  left: 0px; 
+  right: 0px; 
+  bottom: 0px; 
+  overflow: hidden;
+}
+
+.system-desktop-wallpaper {
+
+  background-size: cover;
+}
+
+.system-button-start {
+  font-size: 25px;
+  color: @color-base;
+  font-family: 'fontello';
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  cursor: pointer;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+}
+
+.system-button-start:before {
+  content: '\ea1e';
+}
+
+.system-button-start:hover {
+    color: lighten(@color-base, 13%);
+}
+
+.system-button-window-manager {
+  font-size: 25px;
+  color: @color-base;
+  font-family: 'fontello';
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  cursor: pointer;
+  float: left;
+}
+
+/*
+.system-button-window-manager:before {
+  content: "\ecfd";
+}
+*/
+
+.system-button-window-manager:before {
+  content: "\ED49";
+}
+
+.system-button-window-manager:hover {
+    color: lighten(@color-base, 13%);
+}
+
+.system-button-window-setting {
+  font-size: 25px;
+  color: @color-base;
+  font-family: 'fontello';
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  cursor: pointer;
+  float: left;
+}
+
+.system-button-window-setting:before {
+  content: "\ea2e";
+}
+
+.system-button-window-setting:hover {
+    color: lighten(@color-base, 13%);
+}
+
+/* EF6A - settings */
+
+.system-button-window-close {
+  font-size: 25px;
+  color: @color-base;
+  font-family: 'fontello';
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  cursor: pointer;
+  float: left;
+}
+
+.system-button-window-close:hover {
+    color: lighten(@color-base, 13%);
+}
+
+.system-button-window-close:before {
+  content: "\e935";
+}
+
+* {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+input, textarea {
+  -webkit-touch-callout: text;
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}

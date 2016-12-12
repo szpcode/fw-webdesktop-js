@@ -1,0 +1,33 @@
+
+{% block content %}
+
+<div id="{{ id['window-manager'] }}" style="display: none;" class="window-manager">
+    <div class="window-manager-bg"></div>
+    <div class="window-manager-wallpaper" style="background: url({{ wallpaper }});"></div>
+    <div class="system-button-close" id="{{ id['window-manager-close'] }}"></div>
+    <div id="{{ id['window-manager-container'] }}" class="window-manager-container">
+        <div class="window-manager-content" id="{{ id['window-manager-content'] }}">
+            <div class="window-manager-scale" id="{{ id['window-manager-scale'] }}" ></div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+
+{% block item %}
+    <div style="position: relative; width: {{ width }}px;">
+        <div class="window-manager-window-title">{{ window.title }}</div>
+        <div class="system-manager-button-close" id="{{ id['window-manager-close'] }}"></div>
+        {% if window.maximize %}
+            <div class="system-manager-button-size-default" id="{{ id['window-manager-size-default'] }}"></div>
+        {% else %}
+            <div class="system-manager-button-size-maximize" id="{{ id['window-manager-size-maximize'] }}"></div>
+        {% endif %}
+    </div>
+    <div id="{{ id['window-manager-window-container'] }}" class="window-manager-window-container" style="width: {{ width }}px; height: {{ height }}px;">
+        <div class="window-manager-window-bg"></div>
+        <div class="window-manager-window-blocked"></div>
+        {{ windowContent }}
+    </div>
+{% endblock item %}

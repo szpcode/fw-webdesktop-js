@@ -1,0 +1,169 @@
+@import '../style.less';
+
+.window-manager-window-title {
+  font-size: 16px; 
+  height: 30px; 
+  line-height: 30px; 
+  color: #000; 
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.window-manager-window-container {
+    cursor: pointer; 
+    overflow: hidden; 
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.window-manager-container {
+  position: absolute; 
+  height: 164px; 
+  z-index: 1020;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.window-manager-window-item {
+    position: relative;
+    padding-left: 10px;
+    margin-left: 10px;
+    padding-right: 90px;
+    cursor: pointer;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.window-manager-window-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.window-manager-content {
+  overflow: hidden;
+    padding: 10px 0px;;
+}
+
+.window-manager-window-container {
+  transition: all 0.2s linear;
+}
+
+.window-manager-window-container:hover {
+  box-shadow: 0px 0px 40px #42A5F5;
+  transition: all 0.2s linear;
+}
+
+.window-manager {
+    position: absolute; 
+    width: 30%; 
+    min-width: 400px;
+    height: 204px;
+    right: 0px;
+    top: 0px;
+    box-shadow: 0 0 7px #333;
+}
+
+.system-manager-button-close {
+	width: 30px; 
+	height: 30px; 
+	position: absolute; 
+	z-index: 999; 
+	line-height: 30px; 
+	font-size: 12px; 
+	text-align: center; 
+	cursor: pointer; 
+	right: 3px; 
+	top: 3px; 
+}
+
+
+.system-manager-button-close:before {
+	content: '';
+	font-family: fontello;
+	color: #000;
+}
+
+.system-manager-button-close:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.system-manager-button-size-maximize {
+	width: 30px; 
+	height: 30px; 
+	position: absolute; 
+	z-index: 999; 
+	line-height: 30px; 
+	font-size: 12px; 
+	text-align: center; 
+	cursor: pointer; 
+	right: 40px; 
+	top: 3px; 
+}
+
+.system-manager-button-size-maximize:before {
+	content: '';
+	font-family: fontello;
+	color: #000;
+}
+
+.system-manager-button-size-maximize:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.system-manager-button-size-default {
+	width: 30px; 
+	height: 30px; 
+	position: absolute; 
+	z-index: 999; 
+	line-height: 30px; 
+	font-size: 12px; 
+	text-align: center; 
+	cursor: pointer; 
+	right: 40px; 
+	top: 3px; 
+}
+
+.system-manager-button-size-default:before {
+	content: '';
+	font-family: fontello;
+	color: #000;
+}
+
+.system-manager-button-size-default:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.window-manager-header {
+    font-size: 18px;
+    color: @color-base;
+    background: rgba(255, 255, 255, 0.9);
+    height: 40px;
+    line-height: 40px;
+    padding: 0px 50px 0px 10px;
+    position: relative;
+    z-index: 1020;
+}
+
+.window-manager-close {
+	width: 30px; 
+	height: 30px; 
+	position: absolute; 
+	z-index: 999; 
+	line-height: 30px; 
+	font-size: 12px; 
+	text-align: center; 
+	cursor: pointer; 
+	right: 10px; 
+	top: 5px; 
+    background: #666;
+}
+
+.window-manager-close:hover {
+    background: #999;
+}
+
+.window-manager-close:before {
+	content: '';
+	font-family: fontello;
+	color: #fff;
+}

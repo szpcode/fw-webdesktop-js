@@ -1,0 +1,319 @@
+{% macro input(type, id, value, size, class) %}
+    {% if class is empty %}
+        {% set class = 'form-system-field' %}
+    {% endif %}
+	{% set name = id %}
+    <input type="{{ type|default('text') }}" id="{{ id }}" class="{{ class }}" name="{{ name }}" value="{{ value }}" size="{{ size|default('255') }}">
+{% endmacro %}
+
+{% macro choice(type, id, items, value, mutliple, settings) %}
+    {% set settings = settings|json_encode|raw %}
+    {% if multiple is empty %}
+        {% set multiple = true %}
+    {% endif %}
+    {% if mutliple %}
+        {% set name = id ~'[]' %}
+    {% else %}
+        {% set name = id %}
+    {% endif %}
+    {% if settings.column %}
+        {% set column = settings.column %}
+    {% else %}
+        {% set column = '3' %}
+    {% endif %}
+
+    <div class="classChoiceField_default" id="classChoiceField_{{ id }}_container">
+        {% for value, label in items  %}
+            <div class="classChoiceField_default_item" style="width: calc(100% / {{ column }}); display: inline-block">
+                <input type="{{ type }}" id="classChoiceField_{{ id }}_item_{{ loop.index0 }}" name="{{ name }}"  value="{{ value }}"><label for="classChoiceField_{{ id }}_item_{{ loop.index0 }}">{{ label }}</label>
+            </div>
+        {% endfor  %}
+    </div>
+{% endmacro %}
+
+{% macro select2(id, items, value, placeholder, multiple, readOnly, settings) %}
+	{% set objectName = 'select2Field'~ id|replace({'-': ''}) %}
+    {% if class is empty %}
+        {% set class = 'form-system-field' %}
+    {% endif %}
+    
+    {% if value is empty %}
+        {% set value = [] %}
+    {% endif %}
+    
+    {% if placeholder is empty %}
+        {% set placeholder = '' %}
+    {% endif %}
+    
+    {% if readOnly is empty %}
+        {% set readOnly = false %}
+    {% endif %}
+    
+    {% if multiple is not defined %}
+        {% set multiple = true %}
+    {% endif %}
+
+    {% set settings_option_add = false %}
+    
+    {% set settings_option_clear = false %}
+    {% if settings.option_clear is defined %}
+        {% set settings_option_clear = settings.option_clear %}
+    {% endif %}
+    
+    {% set settings_option_search = false %}
+    {% if settings.option_search is defined %}
+        {% set settings_option_search = settings.option_search %}
+    {% endif %}
+    
+    {% set settings_option_add = false %}
+    {% if settings.option_add is defined %}
+        {% set settings_option_add = settings.option_add %}
+    {% endif %}
+
+    {% set settings_scrollbar = true %}
+    {% if settings.scrollbar is defined %}
+        {% set settings_scrollbar = settings.scrollbar %}
+    {% endif %}
+    
+    <div class="classSelect2Field_default" id="classSelect2Field_{{ id }}_container" >
+        <div id="classSelect2Field_{{ id }}_field">
+            <input readonly type="text"  class="{{ class }}" name="vis_{{ id }}" value="{{ value }}" id="vis_{{ id }}">
+            <input type="hidden" class="{{ class }}" name="{{ id }}" value="{{ value }}" id="{{ id }}">
+            <div class="classSelect2Field_default_buttonArrow"></div>
+        </div>
+        <div class="classSelect2Field_default_window" id="classSelect2Field_{{ id }}_window">
+
+            <div class="classSelect2Field_default_buttons_content" id="classSelect2Field_{{ id }}_contentButtons">
+                <div id="classSelect2Field_{{ id }}_buttonClear" class="classSelect2Field_default_buttonClear">Wyczyść</div>
+            </div>
+
+            <div class="classSelect2Field_default_search" id="classSelect2Field_{{ id }}_contentSearch">
+                <input class="form-system-field" id="classSelect2Field_{{ id }}_fieldSearch" type="text" value="">
+            </div>
+
+            <div class="classSelect2Field_default_buttonOptions" id="classSelect2Field_{{ id }}_buttonOptions"></div>
+
+            <div class="classSelect2Field_default_contentAdd"  id="classSelect2Field_{{ id }}_contentAdd">
+                <input class="form-system-field" id="classSelect2Field_{{ id }}_fieldAdd" type="text" value="">
+                <div class="classSelect2Field_default_buttonAdd" id="classSelect2Field_{{ id }}_buttonAdd">+</div>
+            </div>
+            
+        </div>
+    </div>
+    
+    <script type="text/javascript">
+        var show = new Array();
+        {% if settings_option_search %}
+            show.push('search');
+        {% endif %}
+        
+        {% if settings_option_clear %}
+            show.push('clear');
+        {% endif %}
+        
+        {% if settings_option_add %}
+            show.push('add new');
+        {% endif %}
+        
+        var {{ objectName }} = new classSelect2Field();
+        {{ objectName }}.setName('{{ id }}');
+        {{ objectName }}.setReadOnly({{ readOnly }});
+        {{ objectName }}.setPlaceholderField('{{ placeholder }}');
+        {{ objectName }}.setMultiple({{ multiple }});
+        {{ objectName }}.setScrollbar({{ settings_scrollbar }});
+        {{ objectName }}.setItems({{ items|json_encode|raw }});
+        {{ objectName }}.setValue({{ value|json_encode|raw }});
+        {{ objectName }}.show = show;
+        {{ objectName }}.render();
+    </script>
+{% endmacro %}
+
+{% macro textarea(id, value) %}
+    {% if class is empty %}
+        {% set class = 'form-system-field-textarea' %}
+    {% endif %}
+	{% set name = id %}
+    <textarea id="{{ id }}" name="{{ name }}" class="{{ class }}" >{{ value|escape }}</textarea>
+{% endmacro %}
+
+{% macro ckeditor(id, value, config) %}
+	{% set name = 'ckeditor-'~ id %}
+    {% if config %}
+        {% set config = 'config-'~ config ~'.js' %}
+    {% else %}
+        {% set config = 'config.js' %}
+    {% endif %}
+    <textarea id="{{ id }}"  name="{{ name }}">{{ value|escape }}</textarea>
+    <script type="text/javascript">
+        CKEDITOR.replace( '{{ id }}', {
+            customConfig: '{{ config }}'
+        });
+    </script>
+{% endmacro %}
+
+{% macro number(type, id, value, min, max, step, default, settings) %}
+	{% set name = id %}
+    {% if class is empty %}
+        {% set class = 'default' %}
+    {% endif %}
+    {% if default is empty %}
+        {% set default = '0' %}
+    {% endif %}
+    {% if value is empty %}
+        {% set value = '0' %}
+    {% endif %}
+    {% set settings = settings|json_encode|raw %}
+	{% set objectName = 'numberField'~ id|replace({'-': ''}) %}
+    <div class="classNumberField_{{ class }}" style="position: relative;">
+        <input class="form-system-field classNumberField_{{ class }}_field" id="vis_{{ id }}" type="text" name="vis_{{ name }}" value="{{ value }}">
+        <input id="{{ id }}" type="hidden" name="{{ name }}" value="{{ value }}">
+        <div class="classNumberField_{{ class }}_options">
+            <div class="classNumberField_{{ class }}_plus" id="{{ id }}_plus"></div>
+            <div class="classNumberField_{{ class }}_minus" id="{{ id }}_minus"></div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var {{ objectName }} = new classNumberField();
+        {{ objectName }}.setType('{{ type }}');
+        {{ objectName }}.setName('{{ id }}');
+        {{ objectName }}.setMin({{ min }});
+        {% if settings.format is defined %}
+            {{ objectName }}.setFormat('{{ settings.decNumber }}', '{{ settings.decimals }}', '{{ settings.decPoint }}', '{{ settings.thousandsSep }}');
+        {% else %}  
+            {% if type == 'int' %}
+                {{ objectName }}.setFormat(0, 3, ' ', '');
+            {% endif %}
+            {% if type == 'float' %}
+                {{ objectName }}.setFormat(2, 3, ' ', '.');
+            {% endif %}
+        {% endif %}
+        {{ objectName }}.setMax({{ max }});
+        {{ objectName }}.setStep({{ step }});
+        {{ objectName }}.setValueDefault('{{ default }}');
+        {{ objectName }}.setValue('{{ value }}');
+        {{ objectName }}.render();
+    </script>
+{% endmacro %}
+
+{% macro datetime(type, id, value, settings, class) %}
+	{% set name = id %}
+    {% set jsValue = value|split(' ') %}
+	{% set objectName = 'dateTimeField'~ id|replace({'-': ''}) %}
+    {% if class is empty %}
+        {% set class = 'default' %}
+    {% endif %}
+    
+    <div class="classDateTimeField_{{ class }}_container" id="classDateTimeField_{{ id }}_container">
+        <input readonly class="form-system-field" onclick="{{ objectName }}.open(event);" id="vis_{{ id }}" value="" type="text" name="vis_{{ name }}">
+        <input id="{{ id }}" value="{{ value }}" type="hidden" name="{{ name }}">
+        <div class="classDateTimeField_default_iconCalendarInput" id="classDateTimeField_{{ id }}_iconInput" onclick="{{ objectName }}.open(event);"></div>
+        <div id="classDateTimeField_{{ id }}_content" class="classDateTimeField_{{ class }}"  style="display: none; z-index: 2;">
+        </div>
+    </div>
+    <script type="text/javascript">
+        var {{ objectName }} = new classDateTimeField();
+        {{ objectName }}.setObjectName('{{ objectName }}');
+        {{ objectName }}.setId('{{ id }}');
+        {{ objectName }}.setType('datetime');
+        {{ objectName }}.setValue('{{ jsValue[0] }}', '{{ jsValue[1] }}');
+        {{ objectName }}.render();
+    </script>
+
+{% endmacro %}
+
+
+{% macro ext_select2(id, options, value, multiple, placeholder) %}
+	{% set name = id %}
+    <select id="{{ id }}" name="{{ name }}" class="form-system-field" style="width: 100%;"></select>
+    <script type="text/javascript">
+        
+        var FRUIT_GROUPS = [
+            {
+                id: 'c',
+                text: 'Citrus',
+                children: [
+                    { id: 'c1', text: 'Grapefruit' },
+                    { id: 'c2', text: 'Orange' },
+                    { id: 'c3', text: 'Lemon' },
+                    { id: 'c4', text: 'Lime' }
+                ]
+            },
+            {
+                id: 'o',
+                text: 'Other',
+                children: [
+                    { id: 'o1', text: 'Apple' },
+                    { id: 'o2', text: 'Mango' },
+                    { id: 'o3', text: 'Banana' }
+                ]
+            },
+            {
+                id: 'x',
+                text: 'Other',
+                children: [
+                    { id: 'x1', text: 'Apple' },
+                    { id: 'x2', text: 'Mango' },
+                    { id: 'x3', text: 'Apple' },
+                    { id: 'x4', text: 'Mango' },
+                    { id: 'x5', text: 'Apple' },
+                    { id: 'x6', text: 'Mango' }, 
+                    { id: 'x7', text: 'Banana' }
+                ]
+            }
+        ];
+    
+    
+        $('#{{ id }}').select2({
+            multiple: true,
+            language: "pl",
+            placeholder: "Select fruits...",
+            data: FRUIT_GROUPS
+        });
+        $('#{{ id }}').select2("val", ['c3']);
+        
+       // $('#{{ id }}').select2().val(['c3']);
+        /* nie działa scroll w myszce
+        $(document).on("select2:open", "select", function() {
+            $('.select2-results').mCustomScrollbar({
+                setHeight: 200,
+                scrollInertia: 100,
+                mouseWheelPixels: 50,
+                theme: "system",
+                advanced:{
+                    autoScrollOnFocus: true,
+                    updateOnContentResize: true
+                }   
+            });
+        });
+        */
+
+        
+
+    </script> 
+{% endmacro %}
+
+
+{% macro error(message) %}
+	<a class="">
+		{{ message }}
+	</a>
+{% endmacro %}
+
+{% macro button(name, onclick, class) %}
+	<a class="{{ class }}"  onclick="{{ onclick }}">
+		{{ name|default('Anuluj') }}
+	</a>
+{% endmacro %}
+
+{% macro button_cancel(name, onclick) %}
+	<a class="btn btn-default"  onclick="{{ onclick }}">
+		{{ name|default('Anuluj') }}
+	</a>
+{% endmacro %}
+
+{% macro button_confirm(name, onclick) %}
+	<a class="btn btn-success" onclick="{{ onclick }}">
+		{{ name }}
+	</a>
+{% endmacro %}

@@ -1,0 +1,192 @@
+.system-window-default {
+  position: absolute;
+  box-sizing: border-box;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #E5E5E5;
+  
+  &.system-window-default-active .system-window-default-header {
+    background: #EFEFEF;
+  }
+  
+  &.system-window-default-resize {
+    box-shadow: 0 0 0px 0px rgba(0, 0, 0, 0.0) !important;
+  }
+
+  &.system-window-default-event-move {
+    opacity: 0.9;
+  }
+	
+	.system-window-default-content {
+		height: 100%;
+	}
+	
+  &.system-window-default-unactive .system-window-default-header {
+    background: #F9F9F9;
+  }
+
+  .system-window-default-header {
+    height: 42px;
+    padding: 6px 6px 6px 6px;
+    position: relative;
+    border-bottom: 1px solid #E5E5E5;
+    box-sizing: border-box;
+  }
+
+  .system-window-default-button-close {
+    width: 30px;
+    height: 30px;
+    float: left;
+    cursor: pointer;
+    text-align: center;
+    line-height: 30px;
+  }
+
+  .system-window-default-button-close:before {
+    content: '';
+    font-size: 12px;
+    font-family: 'fontello';
+  }
+
+  .system-window-default-button-minimize {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    float: left;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .system-window-default-button-minimize:before {
+    content: '';
+    font-size: 12px;
+    font-family: 'fontello';
+  }
+
+
+  .system-window-default-button-maximize {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    float: left;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .system-window-default-button-maximize:before {
+    font-size: 12px;
+    font-family: 'fontello';
+  }
+
+  .system-window-default-button-type-max:before {
+    content: '';
+  }
+
+  .system-window-default-button-type-min:before {
+    content: '';
+  }
+
+  .system-window-default-title {
+    height: 30px;
+    line-height: 30px;
+    width: calc(100% ~"-" 110px);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .system-window-default-button {
+    right: 6px;
+    height: 30px;
+    position: absolute;
+    top: 6px;
+  }
+
+  .system-window-default-move {
+    cursor: move;
+  }
+
+  .system-window-default-left {
+    width: 6px;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: -6px;
+    cursor: w-resize;
+  }
+
+  .system-window-default-right {
+    width: 6px;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    right: -6px;
+    cursor: e-resize;
+  }
+
+  .system-window-default-top {
+    height: 6px;
+    position: absolute;
+    top: -6px;
+    right: 0px;
+    left: 0px;
+    cursor: n-resize;
+  }
+
+  .system-window-default-bottom {
+    height: 6px;
+    position: absolute;
+    bottom: -6px;
+    right: 0px;
+    left: 0px;
+    cursor: s-resize;
+  }
+
+  .system-window-default-bottom-right {
+    cursor: se-resize;
+    height: 6px;
+    width: 6px;
+    position: absolute;
+    bottom: -6px;
+    right: -6px;
+  }
+
+  .system-window-default-bottom-left {
+    cursor: sw-resize;
+    height: 6px;
+    width: 6px;
+    position: absolute;
+    bottom: -6px;
+    left: -6px;
+  }
+
+  .system-window-default-top-right {
+    cursor: ne-resize;
+    height: 6px;
+    width: 6px;
+    position: absolute;
+    top: -6px;
+    right: -6px;
+  }
+
+  .system-window-default-top-left {
+    cursor: nw-resize;
+    height: 6px;
+    width: 6px;
+    position: absolute;
+    top: -6px;
+    left: -6px;
+  }
+
+  .system-window-default-container {
+    flex-grow: 1;
+    background: #fff;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    height: calc(~'100% - 30px');
+    width: 100%;
+  }
+
+}

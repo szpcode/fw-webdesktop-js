@@ -1,0 +1,15 @@
+{% if header is not empty %}
+    <div class="skeleton-content-header">
+        <h1>
+        {{ header }}
+        {% if subheader is not empty %}
+            <span class="skeleton-content-header-sep"></span> {{ subheader }}
+        {% endif %}
+        </h1>
+    </div>
+{% endif %}
+<div class="row"> 
+    <div id="{{ id['content'] }}"  style="padding: 0px 20px">
+        {% block content %}{% endblock %}
+    </div>
+</div>

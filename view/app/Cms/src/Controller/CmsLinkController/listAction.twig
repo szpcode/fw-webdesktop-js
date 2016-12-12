@@ -1,0 +1,108 @@
+{% import "../../../../../vendor/system/formBuilder/default.html" as form %}
+
+{% extends "../../../../Skeleton/Content/default.twig" %}
+{% set header = 'Linki' %}
+
+{% block content %} 
+    <div class="row"> 
+        {% if links.res is not empty %}
+            <div class="col-md-8">
+                <div class="skeleton-window">
+                    <div class="skeleton-window-header">
+                        <h2>
+                            Lista
+                        </h2>
+                    </div>
+                        <div style="padding: 10px;">
+    {{ form.datetime('datetimie', 'asdfads', '2010-03-01 20:20:20') }}
+    </div>
+                    <div class="skeleton-window-content">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 30px;">#</th>
+                                    <th style="width: 200px;">UID</th>
+                                    <th>Nazwa</th>
+                                    <th style="width: 200px;"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for item in links.res %}
+                                <tr>
+                                    <td>{{ item.id }}</td>
+                                    <td>{{ item.sid }}</td>
+                                    <td>{{ item.name }}</td>
+                                    <td style="text-align: right;">
+                                        <ul class="skeleton-table-options">
+                                            <li>
+                                                <span onclick="App.getModule('CmsMenuPreview', { 'CmsMenu': { 'id': '{{ item.id }}' } } )">Zobacz</span>
+                                            </li>
+                                            <li>
+                                                <span onclick="App.getModule('CmsMenuEdit', { 'CmsMenu': { 'id': '{{ item.id }}' } } )">Edytuj</span>
+                                            </li>
+                                            <li>
+                                                <span onclick="Modal.open('cmsMenuDelete', { 'id': '{{ item.id }}' }, function() { App.getModule( 'CmsMenuDelete', { 'CmsMenu': { 'id': '{{ item.id }}' } } ) })">Usuń</span>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table> 
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <div class="col-md-8">
+                <div class="skeleton-window">
+                    <div class="skeleton-window-header">
+                        <h2>
+                            Lista
+                        </h2>
+                    </div>
+                    <div class="skeleton-window-content">
+                        <div class="skeleton-window skeleton-not-found">
+                            Nie znaleziono danych.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        <div class="col-md-4">
+            <div class="skeleton-window">
+                <div class="skeleton-window-header">
+                    <h2>
+                        Dodawanie
+                    </h2>
+                </div>
+                <div class="skeleton-window-content skeleton-form-content">
+                	<div class="form-group">
+                        <label for='{{ id['name'] }}'>Nazwa</label>
+                        {{ form.input('text', id['name'], '') }}
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for='{{ id['url'] }}'>Url</label>
+                        {{ form.input('text', id['url'], '') }}
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for='{{ id['status'] }}'>Status</label>
+                        {{ form.select2(id['status'], { visible: 'Widoczny', hidden: 'Ukryty' }, [ 'visible' ], '', false, false, { scrollbar: 'false' }) }}
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for='{{ id['open'] }}'>Typ otwarcia</label>
+                        {{ form.select2(id['open'], { 'in the same window': 'w tym samym oknie','in a new window': 'w nowym oknie', 'no action': 'brak akcji' }, [ 'in the same window' ], '', false, false, { scrollbar: 'false' }) }}
+                    </div> 
+                    
+                    <div class="form-group">
+                        <label for='{{ id['order'] }}'>Kolejność</label>
+                        {{ form.number('int', id['order'], 0, -10000, 10000) }}
+                    </div>
+                </div>
+            </div>
+            <div class="btn btn-primary" id="{{ id['button_add'] }}">Dodawanie</div>
+        </div>
+    </div>
+{% endblock %}

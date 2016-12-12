@@ -1,0 +1,303 @@
+@import '../../style.less';
+
+.classDateTimeField_default_buttonPrev {
+    width: 20px;
+    height: 32px;
+    line-height: 32px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.classDateTimeField_default_buttonPrev:before {
+    content: "\f053";
+    font-family: 'FontAwesome';
+    font-size: 14px;
+}
+
+.classDateTimeField_default_buttonPrev:hover {
+    background: #efefef;
+    border-radius: 3px; 
+}
+
+.classDateTimeField_default_buttonNext {
+    width: 20px;
+    height: 32px;
+    line-height: 32px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.classDateTimeField_default_buttonNext:hover {
+    background: #efefef;
+    border-radius: 3px; 
+}
+
+.classDateTimeField_default_buttonNext:before {
+    content: "\f054";
+    font-family: 'FontAwesome';
+    font-size: 14px;
+}
+
+.classDateTimeField_default {
+    display: none;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    background: #fff;
+    padding: 10px;
+    z-index: 1;
+    position: absolute;
+    right: 0px;
+    border: 1px solid #eee;
+}
+
+.classDateTimeField_default_header {
+    position: relative;
+    text-align: center;
+    line-height: 26px;
+    padding-bottom: 10px;
+}
+
+.classDateTimeField_default_buttonActive {
+    border-radius: 3px;
+    cursor: pointer;
+    &:extend(.styleTemplate1);
+}
+
+.classDateTimeField_default_buttonDisable {
+    color: #dedede;
+}
+
+.classDateTimeField_default_contentDay {
+    width: 230px;
+    text-align: center;
+    height: 200px;
+}
+
+.classDateTimeField_default_contentMonth {
+    width: 230px;
+    text-align: center;
+    height: 200px;
+}
+
+.classDateTimeField_default_contentYear {
+    width: 230px;
+    text-align: center;
+    height: 200px;
+}
+
+.classDateTimeField_default_iconClock {
+    width: 20px;
+    height: 20px;
+    margin: 0 auto;
+    cursor: pointer;
+    text-align: center;
+}
+.classDateTimeField_default_iconClock:before {
+    font-family: 'FontAwesome';
+    content: "\f017";
+    font-size: 18px;
+}
+
+.classDateTimeField_default_iconCalendar {
+    width: 20px;
+    height: 20px;
+    margin: 0 auto;
+    cursor: pointer;
+    text-align: center;
+}
+
+.classDateTimeField_default_iconCalendar:before {
+    font-family: 'FontAwesome';
+    content: "\f073";
+    font-size: 18px;
+}
+
+.classDateTimeField_default_contentTime {
+    width: 200px;
+}
+
+.classDateTimeField_default_hourContent, 
+.classDateTimeField_default_minuteContent, 
+.classDateTimeField_default_secondContent {
+    width: 50px;
+    padding-bottom: 10px;
+    float: left;
+}
+
+.classDateTimeField_default_hourContent {
+    margin-right: 10px;
+}
+
+.classDateTimeField_default_minuteContent {
+    margin-right: 10px;
+}
+.classDateTimeField_default_hourInput, 
+.classDateTimeField_default_minuteInput, 
+.classDateTimeField_default_secondInput {
+    width: 50px;
+    box-sizing: border-box;
+    text-align: center;
+    height: 50px;
+    border: 0px;
+    background: #efefef;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+.classDateTimeField_default_hourAdd, 
+.classDateTimeField_default_minuteAdd, 
+.classDateTimeField_default_secondAdd {
+    text-align: center;
+    padding-bottom: 10px;
+}
+.classDateTimeField_default_hourAdd:before, 
+.classDateTimeField_default_minuteAdd:before, 
+.classDateTimeField_default_secondAdd:before {
+    font-family: 'FontAwesome';
+    content: "\f077";
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.classDateTimeField_default_hourMinus,
+.classDateTimeField_default_minuteMinus,  
+.classDateTimeField_default_secondMinus {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.classDateTimeField_default_hourMinus:before,
+.classDateTimeField_default_minuteMinus:before,  
+.classDateTimeField_default_secondMinus:before {
+    font-family: 'FontAwesome';
+    content: "\f078";
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.classDateTimeField_default_contentCounter {
+    display: table;
+    margin: 0 auto;
+}
+
+.classDateTimeField_default_hourHeader,
+.classDateTimeField_default_minuteHeader, 
+.classDateTimeField_default_secondHeader {
+    font-size: 11px;
+    text-align: center;
+    border-top: 10px solid transparent;
+}
+
+.classDateTimeField_default_button {
+    cursor: pointer;
+}
+
+.classDateTimeField_default_contentDay tr, 
+.classDateTimeField_default_contentMonth tr, 
+.classDateTimeField_default_contentYear tr
+{
+    vertical-align: middle;
+}
+
+.classDateTimeField_default_contentDay td, 
+.classDateTimeField_default_contentMonth td, 
+.classDateTimeField_default_contentYear td
+{
+    vertical-align: middle;
+}
+
+.classDateTimeField_default_button:hover {
+    background: #efefef;
+    border-radius: 3px;
+}
+
+.classDateTimeField_default_buttonChangeContent {
+    width: 160px;
+    margin: 0 auto;
+    cursor: pointer;
+    padding: 3px 6px;
+    border-radius: 3px;
+}
+
+.classDateTimeField_default_buttonChangeContent:hover {
+    background: #efefef;
+}
+
+.classDateTimeField_default_layer {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background: transparent;
+    display: none;
+}
+
+.classDateTimeField_default_container {
+    position: relative;
+}
+
+.classDateTimeField_default_iconCalendarInput {
+    position: absolute;
+    right: 9px;
+    width: 20px;
+    height: 100%;
+    top: 0px;
+    margin: 0 auto;
+    cursor: pointer;
+    text-align: center;
+    line-height: 36px;
+   color: #B8B8BE;
+}
+
+.classDateTimeField_default_iconCalendarInput:before {
+    font-family: 'FontAwesome';
+    content: "\f073";
+    font-size: 18px;
+}
+
+.classDateTimeField_default_iconCalendarInput:hover {
+    color: #666;
+}
+
+.classDateTimeField_default_iconClockInput {
+    position: absolute;
+    right: 9px;
+    top: 0px;
+    width: 20px;
+    height: 100%;
+    margin: 0 auto;
+    cursor: pointer;
+    text-align: center;
+    line-height: 36px;
+    color: #B8B8BE;
+}
+
+.classDateTimeField_default_iconClockInput:hover {
+    color: #666;
+}
+
+.classDateTimeField_default_iconClockInput:before {
+    font-family: 'FontAwesome';
+    content: "\f017";
+    font-size: 18px;
+}
+
+.classDateTimeField_default_field {
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 34px;
+    line-height: 34px;
+    padding: 6px;
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+    font-family: 'Open Sans';
+}

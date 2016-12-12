@@ -1,0 +1,28 @@
+
+{% block content %}
+
+<div id="{{ id['window-manager'] }}" style="display: none;" class="window-manager">
+    <div class="window-manager-header">
+        Windows manager
+        <div class="window-manager-close" id="{{ id['window-manager-close'] }}"></div>
+    </div>
+    <div id="{{ id['window-manager-container'] }}" class="window-manager-container">
+        <div class="window-manager-content" id="{{ id['window-manager-content'] }}">
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+
+{% block item %}
+    <div class="window-manager-window-item">
+        <div class="window-manager-window-title"><div id="{{ id['window-manager-item'] }}">{{ window.title }}</div></div>
+        <div class="system-manager-button-close" id="{{ id['window-manager-close'] }}"></div>
+        {% if window.maximize %}
+            <div class="system-manager-button-size-default" id="{{ id['window-manager-size-default'] }}"></div>
+        {% else %}
+            <div class="system-manager-button-size-maximize" id="{{ id['window-manager-size-maximize'] }}"></div>
+        {% endif %}
+    </div>
+{% endblock item %}

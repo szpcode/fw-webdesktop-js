@@ -1,0 +1,23 @@
+{% block container %}
+    <div id="{{ id['tabBox-container'] }}" class="system-tabBox-{{ template }}-container">
+        <div id="{{ id['tabBox-tab'] }}" class="system-tabBox-{{ template }}-tabList">
+        
+        </div>
+        <div id="{{ id['tabBox-content'] }}" class="system-tabBox-{{ template }}-content">
+        
+        </div>
+    </div>
+{% endblock container %}
+
+{% block content %}
+    <div id="{{ id['tabBox-content'] }}" style="display: none;">
+        {{ content }}
+    </div>
+{% endblock content %}
+
+{% block tab %}
+    <div id="{{ id['tabBox-tab'] }}" class="system-tabBox-{{ template }}-tab">
+        {{ name }}
+    </div>
+{% endblock tab %}
+
